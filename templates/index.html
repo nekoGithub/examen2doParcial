@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de contactos</title>
+    <style>
+        fieldset {
+            border: 2px solid black; /* Color del borde */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 5px; /* Bordes redondeados */
+        }
+        legend {
+            font-weight: bold; /* Negrita para el título del fieldset */
+            padding: 0 10px; /* Espaciado horizontal */
+        }
+        fieldset legend .label{
+            text-align: center;
+            align-items: center;
+        }
+        .div{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        <fieldset>
+            <legend>Datos Personales</legend>
+            <label class="label" for="">SEGUNDO PARCIAL TEM-742:</label>
+            <br>
+            <label class="label" for="">Nombre: Brayan Sonco Machaca</label>
+            <br>
+            <label class="label" for="">Carnet: 12450302 LP</label>
+            <br>
+        </fieldset>
+    </div>
+    
+    <h1>Lista de contactos</h1>
+    <a href="{{ url_for('nuevo') }}">Nuevo</a>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>precio</th>
+                <th>Fecha de vencimiento</th>
+                <th>Categoria</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in productos %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.precio }}</td>
+                <td>{{ item.fec }}</td>
+                <td>{{ item.categoria }}</td>
+                <td><a href="{{ url_for('editar', id = item.id) }}">Editar</a></td>
+                <td>
+                    <form action="{{ url_for('eliminar', id= item.id) }}" method="POST">
+                        <input type="submit" value="Eliminar">
+                    </form>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

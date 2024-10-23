@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo producto</title>
+</head>
+
+<body>
+    <h1>Nuevo Producto</h1>
+    <form action="{{ url_for('nuevo') }}" method="POST">
+        Nombre: <input type="text" name="nombre" required><br>
+        Cantidad: <input type="text" name="cantidad" required><br>
+        Precio: <input type="text" name="precio" required><br>
+        Fecha de vencimiento: <input type="date" name="fec" required><br>
+        Categoria: <select name="categoria" id="categoria">
+            <option value="Electrónica">Electrónica</option>
+            <option value="Ropa">Ropa</option>
+            <option value="Hogar y Jardín">Hogar y Jardín</option>
+            <option value="Deportes y Aire Libre">Deportes y Aire Libre</option>
+            <option value="Salud y Belleza">Salud y Belleza</option>
+        </select>
+        <select name="" id="">
+            <option value=""></option>
+        </select>
+        <br>
+        <input type="submit" >
+    </form>
+</body>
+
+</html>
